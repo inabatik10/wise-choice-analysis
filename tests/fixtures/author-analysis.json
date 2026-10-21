@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "ab102fd8-ed81-4cb9-908f-128b2c2019f6",
+  "createdAt": "2026-10-21T19:27:40.113Z",
+  "title": {
+    "ru": "Курс Excel",
+    "kz": "Excel курсы",
+    "en": "Excel Course"
+  },
+  "riskScore": 20,
+  "idp": 80,
+  "bayesianTrust": 81,
+  "calculationVersion": "author-v2.1",
+  "metricBasis": {
+    "qQuality": "formula",
+    "pPriceAnomaly": null,
+    "rRisk": "formula",
+    "aAltCost": null
+  },
+  "riskLevel": "low",
+  "imp": 1.5,
+  "cvf": null,
+  "metrics": {
+    "qQuality": 80,
+    "pPriceAnomaly": null,
+    "rRisk": 15,
+    "aAltCost": null
+  },
+  "verdict": {
+    "ru": "В предоставленном материале мало явных признаков риска. Маркетинговые приёмы оцениваются отдельно. Сведения о курсе ещё нужно проверить.",
+    "kz": "Берілген материалда тәуекелдің айқын белгілері аз. Маркетинг тәсілдері бөлек бағаланады. Курс туралы мәліметтерді әлі де тексеру қажет.",
+    "en": "The supplied material contains few explicit warning signs. Marketing pressure is assessed separately. Course claims still need independent verification."
+  },
+  "limitations": {
+    "ru": [
+      "Оценка основана только на присланном материале, без независимой проверки продавца.",
+      "Нет подтверждённых сравнительных данных для P и A. CVF не рассчитан; Q и R рассчитаны по модели проекта.",
+      "Байесовское доверие здесь является эвристическим баллом авторской модели, а не проверенной вероятностью."
+    ],
+    "kz": [
+      "Бағалау тек жіберілген материалға негізделген. Сатушы тәуелсіз тексерілген жоқ.",
+      "P және A үшін расталған салыстырмалы деректер жоқ. CVF есептелмеді; Q және R жоба моделімен есептелді.",
+      "Мұндағы Байес сенімі авторлық модельдің эвристикалық балы, тексерілген ықтималдық емес."
+    ],
+    "en": [
+      "This assessment uses only the supplied material. The provider has not been independently verified.",
+      "No verified comparison data is available for P and A. CVF was not calculated; Q and R use the project model.",
+      "Bayesian trust is a heuristic score from the author’s model, not a calibrated probability."
+    ]
+  },
+  "triggers": [
+    {
+      "id": "fomo",
+      "intensity": 0.4,
+      "quote": "Скидка 15% до пятницы."
+    }
+  ],
+  "price": {
+    "amount": 45000,
+    "currency": "KZT"
+  },
+  "source": "gemini"
+}

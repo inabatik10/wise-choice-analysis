@@ -1,0 +1,32 @@
+import { test, expect } from "@playwright/test";
+
+test("selected image can expand without cropping, close with Escape, and return focus", async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto("/");
+  await page.getByTestId("input-mode-image").click();
+  await page.getByTestId("example-documented").click();
+  const selected = page.getByTestId("selected-image");
+  await expect(selected).toHaveAttribute("src", /^data:image\/png;base64,/);
+  await expect.poll(() => selected.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  await expect(selected).toHaveCSS("object-fit", "contain");
+  const expand = page.getByRole("button", { name: "Развернуть изображение", exact: true });
+  await expect(expand).toBeVisible();
+  expect(Math.round((await expand.boundingBox())!.height)).toBeGreaterThanOrEqual(44);
+  await expand.click();
+  const dialog = page.getByRole("dialog");
+  const expanded = page.getByTestId("expanded-image");
+  await expect(dialog).toBeVisible();
+  await expect(expanded).toHaveAttribute("src", await selected.getAttribute("src") ?? "");
+  await expect(expanded).toHaveCSS("object-fit", "contain");
+  await expect(selected).toHaveCount(1);
+  const bounds = (await expanded.boundingBox())!;
+  expect(bounds.width).toBeLessThanOrEqual(375);
+  expect(bounds.height).toBeLessThanOrEqual(812);
+  await page.keyboard.press("Escape");
+  await expect(dialog).toBeHidden();
+  await expect(expand).toBeFocused();
+  await expand.click();
+  await page.getByRole("button", { name: "Закрыть изображение", exact: true }).click();
+  await expect(dialog).toBeHidden();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});

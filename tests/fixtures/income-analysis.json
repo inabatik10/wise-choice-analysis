@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "id": "4ada9c4a-3994-484a-9406-4aeb1cb06d7a",
+  "createdAt": "2026-10-21T20:24:59.569Z",
+  "title": {
+    "ru": "Курс заработка «Миллион за неделю»",
+    "kz": "«Бір аптада миллион» табыс курсы",
+    "en": "\"Million in a Week\" Earning Course"
+  },
+  "riskScore": 86,
+  "idp": 14,
+  "bayesianTrust": 12,
+  "calculationVersion": "author-v2.2",
+  "metricBasis": {
+    "qQuality": "formula",
+    "pPriceAnomaly": null,
+    "rRisk": "formula",
+    "aAltCost": null
+  },
+  "riskLevel": "high",
+  "imp": 8.8,
+  "cvf": null,
+  "metrics": {
+    "qQuality": 10,
+    "pPriceAnomaly": null,
+    "rRisk": 95,
+    "aAltCost": null
+  },
+  "verdict": {
+    "ru": "Обнаружены серьёзные признаки риска в обещаниях или условиях. Не полагайтесь на рекламу при оплате: запросите проверяемые подтверждения. Это оценка признаков, а не доказательство мошенничества.",
+    "kz": "Уәделерде немесе шарттарда елеулі тәуекел белгілері табылды. Төлем кезінде жарнамаға ғана сенбеңіз, тексеруге болатын дәлелдерді сұраңыз. Бұл алаяқтықтың дәлелі емес, белгілерді бағалау.",
+    "en": "The claims or terms contain serious warning signs. Request verifiable evidence before paying. This is an assessment of signals, not proof of fraud."
+  },
+  "limitations": {
+    "ru": [
+      "Оценка основана только на присланном материале, без независимой проверки продавца.",
+      "Нет подтверждённых сравнительных данных для P и A. CVF не рассчитан; Q и R рассчитаны по модели проекта.",
+      "Байесовское доверие здесь является эвристическим баллом авторской модели, а не проверенной вероятностью.",
+      "Проверьте утверждение: «Гарантируем каждому доход 1 000 000 ₸ за 7 дней. Опыт и знания не нужны, риска нет!»",
+      "Проверьте утверждение: «Договор и возврат не предусмотрены.»"
+    ],
+    "kz": [
+      "Бағалау тек жіберілген материалға негізделген. Сатушы тәуелсіз тексерілген жоқ.",
+      "P және A үшін расталған салыстырмалы деректер жоқ. CVF есептелмеді; Q және R жоба моделімен есептелді.",
+      "Мұндағы Байес сенімі авторлық модельдің эвристикалық балы, тексерілген ықтималдық емес.",
+      "Мына тұжырымды тексеріңіз: «Гарантируем каждому доход 1 000 000 ₸ за 7 дней. Опыт и знания не нужны, риска нет!»",
+      "Мына тұжырымды тексеріңіз: «Договор и возврат не предусмотрены.»"
+    ],
+    "en": [
+      "This assessment uses only the supplied material. The provider has not been independently verified.",
+      "No verified comparison data is available for P and A. CVF was not calculated; Q and R use the project model.",
+      "Bayesian trust is a heuristic score from the author’s model, not a calibrated probability.",
+      "Check this claim: \"Гарантируем каждому доход 1 000 000 ₸ за 7 дней. Опыт и знания не нужны, риска нет!\"",
+      "Check this claim: \"Договор и возврат не предусмотрены.\""
+    ]
+  },
+  "triggers": [
+    {
+      "id": "anchoring",
+      "intensity": 0.8,
+      "quote": "99 000 ₸ вместо 300 000 ₸"
+    },
+    {
+      "id": "scarcity",
+      "intensity": 0.9,
+      "quote": "Осталось только 2 места."
+    },
+    {
+      "id": "fomo",
+      "intensity": 0.9,
+      "quote": "Оплатите в ближайшие 15 минут"
+    },
+    {
+      "id": "socialProof",
+      "intensity": 0.7,
+      "quote": "Все наши ученики уже зарабатывают, вы точно сможете так же."
+    }
+  ],
+  "price": {
+    "amount": 99000,
+    "currency": "KZT"
+  },
+  "source": "gemini"
+}

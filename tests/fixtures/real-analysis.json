@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "f72810cd-12d1-41e5-92d0-dacf8d178df0",
+  "createdAt": "2026-10-21T19:10:01.280Z",
+  "title": {"ru":"Курс Excel для начинающих","kz":"Жаңа бастаушыларға арналған Excel курсы","en":"Excel course for beginners"},
+  "riskScore":12,"idp":88,"riskLevel":"low","imp":1.6,"cvf":null,
+  "metrics":{"qQuality":85,"pPriceAnomaly":null,"rRisk":12,"aAltCost":null},
+  "verdict":{
+    "ru":"В предоставленном материале мало явных признаков риска. Маркетинговые приёмы оцениваются отдельно. Сведения о курсе ещё нужно проверить.",
+    "kz":"Берілген материалда тәуекелдің айқын белгілері аз. Маркетинг тәсілдері бөлек бағаланады. Курс туралы мәліметтерді әлі де тексеру қажет.",
+    "en":"The supplied material contains few explicit warning signs. Marketing pressure is assessed separately. Course claims still need independent verification."
+  },
+  "limitations":{
+    "ru":["Оценка основана только на присланном материале, без независимой проверки продавца.","Рыночной выборки нет. Аномалия цены и CVF не рассчитаны."],
+    "kz":["Бағалау тек жіберілген материалға негізделген. Сатушы тәуелсіз тексерілген жоқ.","Нарықтық деректер жиынтығы жоқ. Баға ауытқуы мен CVF есептелмеді."],
+    "en":["This assessment uses only the supplied material. The provider has not been independently verified.","No market comparison dataset is available. Price anomaly and CVF were not calculated."]
+  },
+  "triggers":[{"id":"fomo","intensity":0.6,"quote":"Скидка действует только сегодня"}],
+  "price":{"amount":45000,"currency":"KZT"},"source":"gemini"
+}

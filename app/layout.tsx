@@ -1,9 +1,14 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Geist_Mono, Onest } from 'next/font/google'
 import './globals.css'
 
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
+const onest = Onest({
+  variable: '--font-onest',
+  subsets: ['latin', 'cyrillic', 'cyrillic-ext'],
+  display: 'swap',
+  fallback: ['Arial'],
+})
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
@@ -12,7 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Wise Choice — Умный выбор',
   description:
-    'Economy-mathematical consumer protection tool that detects manipulative marketing and calculates real purchase value using CVF, IMP, and Bayesian quality models.',
+    'Учебный сервис для анализа рекламных обещаний, маркетингового давления и признаков риска в предложениях онлайн-курсов.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -40,8 +45,8 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} bg-[#0a0f1a]`}
+      lang="ru"
+      className={`${onest.variable} ${geistMono.variable} dark`}
     >
       <body className="font-sans antialiased">
         {children}

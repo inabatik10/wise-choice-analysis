@@ -1,0 +1,36 @@
+import { test, expect } from "@playwright/test";
+import { readFile } from "node:fs/promises";
+
+test("price comparison explains its course context and replaces empty graphs with the next action", async ({ page }) => {
+  const result = JSON.parse(await readFile("tests/fixtures/author-analysis.json", "utf8"));
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto("/");
+  await page.evaluate(value => localStorage.setItem("wisechoice.history.v1", JSON.stringify([value])), result);
+  await page.reload();
+  await page.getByTestId("nav-analysis").filter({ visible: true }).click();
+  await page.getByTestId("nav-radar").filter({ visible: true }).click();
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Сравнение цены");
+  await expect(page.getByTestId("comparison-course")).toContainText(result.title.ru);
+  await expect(page.getByTestId("radar-course-price")).toContainText("45");
+  await expect(page.getByTestId("back-to-result")).toBeVisible();
+  await expect(page.getByTestId("price-chart")).toHaveCount(0);
+  await expect(page.getByTestId("comparison-empty")).toBeVisible();
+  const priceInput = page.getByLabel("Цена", { exact: true });
+  expect((await priceInput.boundingBox())!.y).toBeLessThan(700);
+  await page.getByLabel("Название курса", { exact: true }).fill("Сопоставимый курс");
+  await priceInput.fill("30000");
+  await page.getByRole("button", { name: "Добавить курс", exact: true }).click();
+  await expect(page.getByTestId("comparison-empty")).toHaveCount(0);
+  await expect(page.getByTestId("price-chart")).toBeVisible();
+  expect(Math.round((await page.getByTestId("price-chart").boundingBox())!.height)).toBeGreaterThanOrEqual(280);
+  const axisLabel = page.getByTestId("price-chart").locator("text.recharts-cartesian-axis-tick-value").first();
+  await expect(axisLabel).toBeVisible();
+  expect(await axisLabel.evaluate(element => Number.parseFloat(getComputedStyle(element).fontSize))).toBeGreaterThanOrEqual(12);
+  await expect(page.getByTestId("radar-difference")).toHaveText("+50%");
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  expect(Math.round((await page.getByTestId("price-chart").boundingBox())!.height)).toBeGreaterThanOrEqual(360);
+  expect((await page.getByTestId("price-chart").boundingBox())!.width).toBeGreaterThanOrEqual(550);
+  await page.getByTestId("back-to-result").click();
+  await expect(page.getByTestId("idp-score")).toHaveText(String(result.idp));
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
